@@ -1,7 +1,8 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.Random;
 
-class Task1{
+class GuessTheNumber{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -10,6 +11,7 @@ class Task1{
         int max = 100;
         int attempts = 0;
         int rounds = 0;
+        int wins = 0;
 
         while(true){
             rounds ++;
@@ -22,7 +24,8 @@ class Task1{
                int guess = scanner.nextInt();
                attempts ++;
                if(guess==randomNum){
-                   System.out.println("you guessed the correct number, you win!!");
+                   System.out.println("you guessed it! the number is "+guess+", you win!!");
+                   wins++;
                    System.out.println("attemps taken: "+attempts);
                    attempts=0;
                    break;
@@ -43,5 +46,6 @@ class Task1{
            }
         }
         System.out.println("rounds played: "+rounds);
+        System.out.println("rounds won: "+wins);
     }
 }
