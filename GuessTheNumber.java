@@ -9,25 +9,26 @@ class GuessTheNumber{
 
         int min = 1;
         int max = 100;
-        int attempts = 0;
         int rounds = 0;
         int wins = 0;
+        int max_attempts = 5;
 
         while(true){
+            int attempts = 0;
             rounds ++;
             System.out.println("Round: "+rounds);
-            int randomNum = random.nextInt(max);
+            int randomNum = random.nextInt(max)+min;
 
             System.out.println("guess a random number between 1 & 100:");
 
-           while (true){
+           while (attempts < max_attempts){
                int guess = scanner.nextInt();
                attempts ++;
                if(guess==randomNum){
                    System.out.println("you guessed it! the number is "+guess+", you win!!");
                    wins++;
-                   System.out.println("attemps taken: "+attempts);
-                   attempts=0;
+                   System.out.println("attempts taken: "+attempts);
+
                    break;
                }
                else if(guess<randomNum){
@@ -37,9 +38,13 @@ class GuessTheNumber{
                }
 
                }
+            if (attempts >= max_attempts) {
+                System.out.println("Oops! you have no more lives!. The number was " + randomNum + ".");
+            }
 
-            System.out.println("wanna play again?(yes/no):");
+            System.out.println("wanna play again?(type 'yes' to continue):");
             String answer = scanner.next();
+            System.out.println(" ");
 
             if (!answer.equalsIgnoreCase("yes")){
                 break;
