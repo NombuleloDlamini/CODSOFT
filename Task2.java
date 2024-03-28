@@ -53,7 +53,7 @@ public class Task2 {
                 grade = "F";
             }
 
-             OUTPUT 
+            // OUTPUT 
             System.out.printf("%-8s %-6s\n", subject, grade);
         }
         System.out.println("Total marks: " + sum);
