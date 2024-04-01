@@ -1,4 +1,6 @@
-import java.util.Scanner;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 // Class representing the user's bank account
 class BankAccount {
@@ -36,69 +38,57 @@ class ATM {
 
     public void withdraw(double amount) {
         if (amount <= 0) {
-            System.out.println("Invalid amount.");
+            JOptionPane.showMessageDialog(null, "Invalid amount.", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (account.withdraw(amount)) {
-            System.out.println("Withdrawal successful. Remaining balance: " + account.getBalance());
+            JOptionPane.showMessageDialog(null, "Withdrawal successful. Remaining balance: " + account.getBalance(), "Success", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            System.out.println("Insufficient balance.");
+            JOptionPane.showMessageDialog(null, "Insufficient balance.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     public void deposit(double amount) {
         if (amount <= 0) {
-            System.out.println("Invalid amount.");
+            JOptionPane.showMessageDialog(null, "Invalid amount.", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             account.deposit(amount);
-            System.out.println("Deposit successful. New balance: " + account.getBalance());
+            JOptionPane.showMessageDialog(null, "Deposit successful. New balance: " + account.getBalance(), "Success", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
     public void checkBalance() {
-        System.out.println("Current balance is: " + account.getBalance());
+        JOptionPane.showMessageDialog(null, "Current balance is: " + account.getBalance(), "Balance", JOptionPane.INFORMATION_MESSAGE);
     }
 }
 
 // Main class
 public class Task3 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter initial balance: ");
-        double initialBalance = scanner.nextDouble();
+        String initialBalanceStr = JOptionPane.showInputDialog("Enter initial balance: ");
+        double initialBalance = Double.parseDouble(initialBalanceStr);
         BankAccount bankAccount = new BankAccount(initialBalance);
         ATM atm = new ATM(bankAccount);
 
+        String[] options = {"Withdraw", "Deposit", "Check Balance", "Exit"};
+        int choice = JOptionPane.showOptionDialog(null, "Choose an option:", "ATM", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 
-            System.out.println("\nChoose an option:");
-            System.out.println("1. Withdraw");
-            System.out.println("2. Deposit");
-            System.out.println("3. Check Balance");
-            System.out.println("4. Exit");
-            System.out.println("Enter your choice: ");
-            int choice = scanner.nextInt();
-
-
-        while(choice!=4){
-            if(choice==1){
-                System.out.println("Enter amount to withdraw: ");
-                double withdrawAmount = scanner.nextDouble();
+        while (choice != 3) {
+            if (choice == 0) {
+                String withdrawAmountStr = JOptionPane.showInputDialog("Enter amount to withdraw: ");
+                double withdrawAmount = Double.parseDouble(withdrawAmountStr);
                 atm.withdraw(withdrawAmount);
-                break;
-            }
-            else if(choice==2){
-                System.out.println("Enter amount to deposit: ");
-                double depositAmount = scanner.nextDouble();
+            } else if (choice == 1) {
+                String depositAmountStr = JOptionPane.showInputDialog("Enter amount to deposit: ");
+                double depositAmount = Double.parseDouble(depositAmountStr);
                 atm.deposit(depositAmount);
-                break;
-            }
-            else if(choice==3){
+            } else if (choice == 2) {
                 atm.checkBalance();
+            } else {
                 break;
             }
-            else{
-                System.out.println("Invalid choice. Please enter a number between 1 and 4.");
-            }
+
+            choice = JOptionPane.showOptionDialog(null, "Choose an option:", "ATM", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
         }
-        System.out.println("Thank you for using this Bank");
-        System.exit(0);
+
+        JOptionPane.showMessageDialog(null, "Thank you for using this Bank", "Exit", JOptionPane.INFORMATION_MESSAGE);
     }
 }
