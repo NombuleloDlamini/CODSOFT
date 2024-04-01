@@ -67,8 +67,7 @@ public class Task3 {
         BankAccount bankAccount = new BankAccount(initialBalance);
         ATM atm = new ATM(bankAccount);
 
-       // int choice;
-      //  do {
+
             System.out.println("\nChoose an option:");
             System.out.println("1. Withdraw");
             System.out.println("2. Deposit");
