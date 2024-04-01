@@ -1,10 +1,11 @@
 Task1(NUMBER GAME)
 
-This is a number guessing game where the player tries to guess a random number between 1 and 100. 
+This is a number guessing game where the player tries to guess a random number between a certain range set between 1 & 100 by default. 
 The player has a limited number of attempts per round(max_attempts), set to 5 by default. 
 After each attempt, the program informs the player whether their guess is too high or too low.
 If the player runs out of attempts, the player lose that round and the correct number is revealed. 
 The game continues with multiple rounds until the player decides to stop, providing statistics on rounds played and won.
+The range and number of attempts can be adjusted to the likings of the player.
 
 Task2(STUDENT GRADE CALCULATOR)
 
