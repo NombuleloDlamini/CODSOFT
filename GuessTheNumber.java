@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-class GuessTheNumber{
+class Task1{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -10,7 +10,7 @@ class GuessTheNumber{
         int max = 100;
         int rounds = 0;
         int wins = 0;
-        int max_attempts = 5;
+        int max_attempts = 8;
 
         while(true){
             int attempts = 0;
@@ -18,7 +18,8 @@ class GuessTheNumber{
             System.out.println("Round: "+rounds);
             int randomNum = random.nextInt(max)+min;
 
-            System.out.println("guess a random number between 1 & 100:");
+            System.out.println("guess a random number between "+min+" & "+max+":");
+
 
            while (attempts < max_attempts){
                int guess = scanner.nextInt();
