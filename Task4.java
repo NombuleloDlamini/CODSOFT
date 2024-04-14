@@ -53,6 +53,6 @@ public class Task4 {
         }
 
         System.out.println("Quiz completed!");
-        System.out.println("Your final score is: " + score + "/" + questions.length);
+        System.out.println("Score: " + score + "/" + questions.length);
     }
 }
