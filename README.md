@@ -17,7 +17,7 @@ This code simulates an ATM system. It allows users to interact with their bank a
 Users can perform operations such as withdrawing funds, depositing funds, and checking their account balance. 
 The program utilizes a `BankAccount` class to manage account balances and an `ATM` class to handle user transactions, providing feedback through dialog boxes.
 
-Task4(QUIZ APPLICATION)
+Task4(QUIZ APPLICATION)  // THIS IS INCOMPLETE, COULD'NT IMPLEMENT TIMER
 This code implements a quiz game with multiple-choice questions. It creates QuizQuestion objects with a question, options, and correct option index. 
 Then, it presents each question to the user, takes their input, and compares it to the correct answer.
 After completing the quiz, it displays the user's score out of the total number of questions.
